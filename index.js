@@ -1,5 +1,6 @@
 const Container = require("./container")
-container = new Container("../productos.txt")
+
+let container = new Container("productos.txt")
 
 const main = async () => {
     obj1 = {
@@ -10,26 +11,26 @@ const main = async () => {
     let guardarObj1 = await container.save(obj1)
     console.log(guardarObj1)
 
-    obj2 = {
-        title: "Pablo Vegetti",
-        price: 700,
-        thumbnail: "belgranoElMasGrandeDeCba.gallinaqliadasa"
-    }
-    let guardarObj2 = await container.save(obj2)
-    console.log(guardarObj2)
+    // obj2 = {
+    //     title: "Pablo Vegetti",
+    //     price: 700,
+    //     thumbnail: "belgranoElMasGrandeDeCba.gallinaqliadasa"
+    // }
+    // let guardarObj2 = await container.save(obj2)
+    // console.log(guardarObj2)
 
-    let productoID = await container.getByID(2)
-    console.log(productoID)
+    // let productoID = await container.getByID(2)
+    // console.log(productoID)
 
-    console.log(`Todos los productos son: ${JSON.stringify(await container.getAll())}`)
+    // console.log(`Todos los productos son: ${JSON.parse(await container.getAll())}`)
 
-    await container.deleteById(2)
+    // await container.deleteByID(2)
 
-    console.log(`Ahora todos los productos son: ${JSON.stringify(await container.getAll())}`)
+    // console.log(`Ahora todos los productos son: ${JSON.parse(await container.getAll())}`)
 
-    await container.deleteAll()
+    // await container.deleteAll()
 
-    console.log(`Ahora todos los productos son: ${JSON.stringify(await container.getAll())}`)
+    // console.log(`Ahora todos los productos son: ${JSON.parse(await container.getAll())}`)
 
 }
 
