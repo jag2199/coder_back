@@ -3,7 +3,6 @@ const express = require("express")
 const app = express()
 
 const PORT = 8080
-let cont = 0
 
 let container = new Container("./productos.txt")
 
@@ -12,7 +11,6 @@ const server = app.listen(PORT, () => {
 })
 
 app.get("/", (req, res) => {
-    cont++
     res.send(`Direcciones: /productos: todos los productos\n/productoRandom: producto aleatorio`)
 })
 
