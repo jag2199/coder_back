@@ -1,15 +1,77 @@
 const Container = require("./container")
+const express = require("express")
+const app = express()
 
-let container = new Container("productos.txt")
+const PORT = 8080
+let cont = 0
 
-const main = async () => {
-    obj1 = {
-        title: "Belgrano de Cba",
-        price: 400,
-        thumbnail: "aguantebelgrano.lcdll"
-    }
-    let guardarObj1 = await container.save(obj1)
-    console.log(guardarObj1)
+let container = new Container("./productos.txt")
+
+const server = app.listen(PORT, () => {
+    console.log(`Servidor iniciado en el puerto ${server.address().port}`)
+})
+
+app.get("/", (req, res) => {
+    cont++
+    res.send(`Direcciones: /productos: todos los productos\n/productoRandom: producto aleatorio`)
+})
+
+app.get("/productos", (req, res) => {
+    res.send(container.getAll())
+})
+
+app.get("/productoRandom", (req, res) => {
+    res.send(container.getRandom())
+})
+
+server.on("error", error => console.log("Error culiaw"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const main = async () => {
+//     obj1 = {
+//         title: "Belgrano de Cba",
+//         price: 400,
+//         thumbnail: "aguantebelgrano.lcdll"
+//     }
+//     let guardarObj1 = await container.save(obj1)
+//     console.log(guardarObj1)
 
     // obj2 = {
     //     title: "Pablo Vegetti",
@@ -32,9 +94,6 @@ const main = async () => {
 
     // console.log(`Ahora todos los productos son: ${JSON.parse(await container.getAll())}`)
 
-}
-
-main()
 
 
 
